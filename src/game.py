@@ -1,6 +1,5 @@
 # Import necessary modules
 import pygame
-import 
 
 # Implement the specific logic of the game
 class Game:
