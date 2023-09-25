@@ -1,5 +1,8 @@
 # Import necessary modules
 import pygame
+import 
 
 class Game:
-    pass
+    def __init__(self):
+        pygame.init()
+        pass
