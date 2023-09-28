@@ -1,6 +1,6 @@
 # Import necessary modules
 import pygame
-from src.game import Game
+from game import Game
 
 # Initialize the game
 def main():
