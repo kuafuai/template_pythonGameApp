@@ -59,6 +59,14 @@ class Food:
     def draw(self, surface):
         pygame.draw.rect(surface, (255, 0, 0), (self.x * 20, self.y * 20, 20, 20))
 
+class Obstacle:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def draw(self, surface):
+        pygame.draw.rect(surface, (0, 0, 255), (self.x * 20, self.y * 20, 20, 20))
+
 class Game:
     def __init__(self):
         pygame.init()
@@ -67,6 +75,7 @@ class Game:
         self.snake = Snake(10, 10, 1, "RIGHT")
         self.food = Food(5, 5)
         self.score = 0
+        self.obstacle = Obstacle(15, 15)
 
     def start(self):
         running = True
@@ -84,6 +93,7 @@ class Game:
         self.snake = Snake(10, 10, 1, "RIGHT")
         self.food = Food(5, 5)
         self.score = 0
+        self.obstacle = Obstacle(15, 15)
 
     def update(self):
         self.snake.move()
@@ -97,6 +107,7 @@ class Game:
         self.surface.fill((0, 0, 0))
         self.snake.draw(self.surface)
         self.food.draw(self.surface)
+        self.obstacle.draw(self.surface)
         pygame.display.flip()
 
     def handle_events(self):
