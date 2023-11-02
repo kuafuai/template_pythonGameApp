@@ -37,10 +37,10 @@ class SnakeGame(Game):
 
     def update_snake(self):
         self.snake.move()
-        self.snake.check_collision()
+        self.snake.check_collision(self.settings)
 
     def check_collision(self):
-        if self.snake.check_collision():
+        if self.snake.check_collision(self.settings):
             self.snake.is_dead = True
 
     def generate_food(self):
@@ -79,8 +79,8 @@ class Snake:
     def grow(self):
         self.position.append(self.position[-1])
 
-    def check_collision(self):
-        if self.position[0][0] < 0 or self.position[0][0] >= self.settings.width or self.position[0][1] < 0 or self.position[0][1] >= self.settings.height:
+    def check_collision(self, settings):
+        if self.position[0][0] < 0 or self.position[0][0] >= settings.width or self.position[0][1] < 0 or self.position[0][1] >= settings.height:
             return True
         if self.position[0] in self.position[1:]:
             return True
