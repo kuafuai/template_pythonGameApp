@@ -58,71 +58,70 @@ class WorldConquest:
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption("World Conquest")
         self.clock = pygame.time.Clock()
-        self.running = True
         self.display_menu()
 
     def display_menu(self):
         # TODO: Display game menu
-        pass
+        print("Game Menu")
 
     def display_rules(self):
         # TODO: Display game rules
-        pass
+        print("Game Rules")
 
     def display_map(self):
         self.map.display_map()
 
     def display_units(self):
         # TODO: Display unit information
-        pass
+        print("Unit Information")
 
     def display_barracks(self):
         # TODO: Display barracks information
-        pass
+        print("Barracks Information")
 
     def display_player(self):
         # TODO: Display player information
-        pass
+        print("Player Information")
 
     def display_ai(self):
         # TODO: Display AI information
-        pass
+        print("AI Information")
 
     def display_victory(self):
         # TODO: Display victory message
-        pass
+        print("Victory!")
 
     def display_defeat(self):
         # TODO: Display defeat message
-        pass
+        print("Defeat!")
 
     def get_input(self):
         # TODO: Get user input
-        pass
+        return input("Enter your choice: ")
 
     def deploy_units(self):
         # TODO: Deploy units on the map
-        pass
+        print("Deploying units")
 
     def attack(self):
         # TODO: Perform attack action
-        pass
+        print("Attacking")
 
     def move(self):
         # TODO: Perform move action
-        pass
+        print("Moving")
 
     def build_barracks(self):
         # TODO: Build barracks on the map
-        pass
+        print("Building barracks")
 
     def produce_units(self):
         # TODO: Produce units in the barracks
-        pass
+        print("Producing units")
 
     def check_victory(self):
         # TODO: Check victory condition
-        pass
+        print("Checking victory condition")
 
     def end_game(self):
         self.running = False
@@ -195,11 +194,11 @@ class Barracks:
 
     def build(self):
         # TODO: Build barracks on the map
-        pass
+        print("Building barracks")
 
     def produce(self, unit_type):
         # TODO: Produce units in the barracks
-        pass
+        print("Producing units")
 
 class Player:
     def __init__(self, name):
@@ -227,23 +226,23 @@ class AI:
 
     def deploy_units(self):
         # TODO: Deploy units on the map
-        pass
+        print("Deploying units")
 
     def attack(self):
         # TODO: Perform attack action
-        pass
+        print("Attacking")
 
     def move(self):
         # TODO: Perform move action
-        pass
+        print("Moving")
 
     def build_barracks(self):
         # TODO: Build barracks on the map
-        pass
+        print("Building barracks")
 
     def produce_units(self):
         # TODO: Produce units in the barracks
-        pass
+        print("Producing units")
 
 class GameInterface:
     def __init__(self):
@@ -251,42 +250,42 @@ class GameInterface:
 
     def display_menu(self):
         # TODO: Display game menu
-        pass
+        print("Game Menu")
 
     def display_rules(self):
         # TODO: Display game rules
-        pass
+        print("Game Rules")
 
     def display_map(self):
         self.game.display_map()
 
     def display_units(self):
         # TODO: Display unit information
-        pass
+        print("Unit Information")
 
     def display_barracks(self):
         # TODO: Display barracks information
-        pass
+        print("Barracks Information")
 
     def display_player(self):
         # TODO: Display player information
-        pass
+        print("Player Information")
 
     def display_ai(self):
         # TODO: Display AI information
-        pass
+        print("AI Information")
 
     def display_victory(self):
         # TODO: Display victory message
-        pass
+        print("Victory!")
 
     def display_defeat(self):
         # TODO: Display defeat message
-        pass
+        print("Defeat!")
 
     def get_input(self):
         # TODO: Get user input
-        pass
+        return input("Enter your choice: ")
 
 class GameController:
     def __init__(self):
@@ -297,7 +296,7 @@ class GameController:
 
     def play_turn(self):
         # TODO: Play a turn of the game
-        pass
+        print("Playing a turn")
 
     def end_game(self):
         self.game.end_game()
