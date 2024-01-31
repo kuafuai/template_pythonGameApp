@@ -34,9 +34,15 @@ PLAYER_STATS = {"gold": 1000}
 # Define AI stats
 AI_STATS = {"gold": 1000}
 
-class WorldConquest(Game):
+class Game:
     def __init__(self):
-        super().__init__()
+        self.world_conquest = WorldConquest()
+
+    def start_game(self):
+        self.world_conquest.start_game()
+
+class WorldConquest:
+    def __init__(self):
         self.map = Map()
         self.player = Player("Player")
         self.ai = AI()
@@ -239,9 +245,52 @@ class AI:
         # TODO: Produce units in the barracks
         pass
 
-class GameController:
+class GameInterface:
     def __init__(self):
         self.game = WorldConquest()
+
+    def display_menu(self):
+        # TODO: Display game menu
+        pass
+
+    def display_rules(self):
+        # TODO: Display game rules
+        pass
+
+    def display_map(self):
+        self.game.display_map()
+
+    def display_units(self):
+        # TODO: Display unit information
+        pass
+
+    def display_barracks(self):
+        # TODO: Display barracks information
+        pass
+
+    def display_player(self):
+        # TODO: Display player information
+        pass
+
+    def display_ai(self):
+        # TODO: Display AI information
+        pass
+
+    def display_victory(self):
+        # TODO: Display victory message
+        pass
+
+    def display_defeat(self):
+        # TODO: Display defeat message
+        pass
+
+    def get_input(self):
+        # TODO: Get user input
+        pass
+
+class GameController:
+    def __init__(self):
+        self.game = Game()
 
     def start_game(self):
         self.game.start_game()
