@@ -1,8 +1,1 @@
-# Import necessary modules
-import pygame
-
-# Implement all specific logic of the game
-class Game:
-    def __init__(self):
-        pygame.init()
-        pass
+在`game.py`文件中创建一个名为`WorldConquest`的类，继承自`Game`类。
