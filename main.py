@@ -8,24 +8,15 @@ class Game:
         self.clock = pygame.time.Clock()
         self.is_running = False
 
-    def handle_events(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                self.is_running = False
-
-    def update(self):
-        pass
-
-    def render(self):
-        self.screen.fill((0, 0, 0))
-        pygame.display.flip()
-
     def run(self):
         self.is_running = True
         while self.is_running:
-            self.handle_events()
-            self.update()
-            self.render()
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.is_running = False
+
+            self.screen.fill((0, 0, 0))
+            pygame.display.flip()
             self.clock.tick(60)
 
     def quit(self):

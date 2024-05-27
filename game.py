@@ -45,11 +45,9 @@ class AimTrainer:
                     self.check_collision()
 
     def update(self):
-        self.player.move(*pygame.mouse.get_pos())
         for target in self.targets:
             target.move()
-        self.scoreboard.update_score(self.score)
-        self.scoreboard.update_health(self.health)
+        self.player.move(*pygame.mouse.get_pos())
 
     def draw(self):
         self.screen.fill((0, 0, 0))
@@ -70,24 +68,27 @@ class AimTrainer:
 
     def increase_score(self):
         self.score += 1
+        self.scoreboard.update_score(self.score)
 
     def decrease_health(self):
         self.health -= 1
+        self.scoreboard.update_health(self.health)
         if self.health == 0:
             self.game_over()
 
     def reset(self):
-        self.score = 0
-        self.health = 3
         self.targets = []
         for _ in range(self.target_num):
             x = random.randint(0, self.width - self.target_size)
             y = random.randint(0, self.height - self.target_size)
             target = Target(x, y, self.target_size, self.target_color, self.target_speed)
             self.targets.append(target)
+        self.score = 0
+        self.health = 3
+        self.scoreboard.update_score(self.score)
+        self.scoreboard.update_health(self.health)
 
     def game_over(self):
-        self.reset()
         self.game_over = True
 
 
@@ -104,10 +105,11 @@ class Target:
         self.x += self.speed
         if self.x > 800:
             self.x = 0
-        self.rect.x = self.x
+            self.y = random.randint(0, 600)
+        self.rect = pygame.Rect(self.x, self.y, self.size, self.size)
 
     def draw(self):
-        pygame.draw.rect(screen, self.color, self.rect)
+        pygame.draw.rect(pygame.display.get_surface(), self.color, self.rect)
 
 
 class Player:
@@ -121,11 +123,10 @@ class Player:
     def move(self, x, y):
         self.x = x
         self.y = y
-        self.rect.x = self.x
-        self.rect.y = self.y
+        self.rect = pygame.Rect(self.x, self.y, self.size, self.size)
 
     def draw(self):
-        pygame.draw.rect(screen, self.color, self.rect)
+        pygame.draw.rect(pygame.display.get_surface(), self.color, self.rect)
 
 
 class Scoreboard:
@@ -145,5 +146,5 @@ class Scoreboard:
         self.health_text = self.font.render(f"Health: {health}", True, self.font_color)
 
     def draw(self):
-        screen.blit(self.score_text, (self.x, self.y))
-        screen.blit(self.health_text, (self.x, self.y + self.font_size + 5))
+        pygame.display.get_surface().blit(self.score_text, (self.x, self.y))
+        pygame.display.get_surface().blit(self.health_text, (self.x, self.y + self.font_size + 5))
